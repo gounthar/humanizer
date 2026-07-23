@@ -110,7 +110,7 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 36 Patterns Detected (with Before/After Examples)
+## 38 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -156,6 +156,8 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 | 34 | **Tables where prose belongs** | One-row table of "aspect / description" pairs | Write it as a sentence |
 | 35 | **Skipped heading levels** | `## Installation` then `#### Prerequisites` | Step down one level at a time |
 | 36 | **Thematic breaks before headings** | `---` sitting just above a heading | Let the heading start the section |
+| 37 | **Colon reveals** | "The best part: it retries on its own." | Rewrite as a plain sentence |
+| 38 | **Faux-insight setups** | "Here's what nobody tells you: ..." | Let the claim stand by itself |
 
 ### Communication Patterns
 
@@ -207,9 +209,11 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 
 - [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) - Primary source
 - [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) - Maintaining organization
+- [no-ai-slop](https://github.com/petergyang/no-ai-slop) (MIT) - Source of the pattern names for #37 and #38
 
 ## Version History
 
+- **2.11.0** - Added patterns #37 (colon reveals) and #38 (faux-insight setups). Both pattern names come from [no-ai-slop](https://github.com/petergyang/no-ai-slop) (MIT); the rule text and examples here are written for this skill. 38 patterns total.
 - **2.10.0** - Added structural/formatting patterns #34-36: tables where prose belongs, skipped heading levels, and thematic breaks before headings. 36 patterns total.
 - **2.9.1** - Improved distribution and portability: removed nonportable frontmatter and tool preapprovals, made global installation the documented default, added package validation, and removed the duplicated long-form example from the runtime prompt. No change to the 33 patterns.
 - **2.9.0** - Added a no-fabrication rule: rewrites may not invent facts, names, dates, or citations not present in the source, and every example that modeled invented specifics was re-cut to use only source information (fixes #187). Replaced paragraph-count parity with an information-over-shape rule, made a user's voice sample outrank the em dash ban, and added invocation modes (pasted text / file / embedded). No change to the 33 patterns.

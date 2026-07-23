@@ -9,7 +9,7 @@ description: |
   voice, negative parallelisms, and filler phrases.
 license: MIT
 metadata:
-  version: "2.9.1"
+  version: "2.10.0"
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -351,6 +351,49 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 > Is it worth the price? Honestly? It depends on how often you'll use it.
 **After:**
 > Whether it's worth the price depends on how often you'll use it.
+
+### 34. Tables Where Prose Belongs
+
+**Problem:** AI chatbots reach for a table to present information that reads better as a sentence or a short list. Watch for tables with a single data row, a column that repeats one value, or "aspect/description" pairs that are really just prose split across cells.
+
+**Before:**
+> | Feature | Description |
+> | --- | --- |
+> | Speed | The service responds quickly under normal load. |
+
+**After:**
+> Under normal load, the service responds quickly.
+
+
+### 35. Skipped Heading Levels
+
+**Problem:** AI-generated documents often jump heading levels (an `H2` followed directly by an `H4`), using heading size for visual weight rather than to express the real document hierarchy. Headings should step down one level at a time.
+
+**Before:**
+> ## Installation
+> #### Prerequisites
+
+**After:**
+> ## Installation
+> ### Prerequisites
+
+
+### 36. Thematic Breaks Before Headings
+
+**Problem:** AI chatbots scatter horizontal rules (`---`) just above section headings as decorative separators. A heading already starts a new section; the rule is redundant noise.
+
+**Before:**
+> Earlier content wraps up here.
+>
+> ---
+>
+> ## Next Section
+
+**After:**
+> Earlier content wraps up here.
+>
+> ## Next Section
+
 
 ## DETECTION GUIDANCE
 

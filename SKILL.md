@@ -9,7 +9,7 @@ description: |
   voice, negative parallelisms, and filler phrases.
 license: MIT
 metadata:
-  version: "2.10.0"
+  version: "2.11.0"
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -394,6 +394,23 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 >
 > ## Next Section
 
+### 37. Colon Reveals
+
+**Shape to watch:** a noun phrase, a colon, then a lowercase dramatic reveal, used as a sentence rather than to introduce a list, label, or quote.
+**Problem:** The colon is doing theatrical work instead of grammatical work. It withholds the point for a beat so the reveal lands harder, which turns an ordinary statement into a stage trick. Rewrite it as a plain sentence and keep colons for lists, labels, quotes, and explanations.
+**Before:**
+> The thing that finally fixed the build: one missing environment variable. The best part: it retries on its own now.
+**After:**
+> One missing environment variable finally fixed the build, and it retries on its own now.
+
+### 38. Faux-Insight Setups
+
+**Phrases to watch:** what most people get wrong, here's what nobody tells you, the part everyone misses, this is the part people skip, what they don't tell you
+**Problem:** The setup casts the writer as the one person who understands the subject, then delivers a claim that is usually unremarkable. It flatters the writer, adds no information, and puts the reader on the back foot. Cut the setup and let the claim stand by itself. This differs from §28, which announces what the writing is about to do rather than who is smart enough to know it.
+**Before:**
+> Here's what nobody tells you about database migrations: you need a rollback plan.
+**After:**
+> Database migrations need a rollback plan.
 
 ## DETECTION GUIDANCE
 

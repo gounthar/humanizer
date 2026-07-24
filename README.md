@@ -106,6 +106,8 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 Rewrites follow a no-fabrication rule: they never add facts, names, dates, or citations that aren't in the source text. Specificity has to come from the source or the author, not from the rewrite.
 
+Two rules sit alongside the pattern list. Detector evasion is banned outright: no homoglyphs, invisible characters, planted typos, or paraphrase-spinning, because they break copy-paste, search, and screen readers without making the writing any better. And three checks are countable rather than judgment calls, so the skill verifies them against the final rewrite: hedging density (at most one per 300 words), sentence rhythm (at least one sentence of six words or fewer per 120 words), and list length (two or four items, not three or five).
+
 ### Key Insight from Wikipedia
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
@@ -210,9 +212,11 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 - [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) - Primary source
 - [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) - Maintaining organization
 - [no-ai-slop](https://github.com/petergyang/no-ai-slop) (MIT) - Source of the pattern names for #37 and #38
+- [humanize-writing](https://github.com/marian-kamenistak/humanize-writing) (MIT) - Source of the numeric thresholds and the no-evasion stance in 2.12.0
 
 ## Version History
 
+- **2.12.0** - Added a no-detector-evasion rule (no homoglyphs, invisible characters, planted typos, or paraphrase-spinning) and a Numeric Checks section with three countable thresholds: hedging density, sentence rhythm, and list length. Both come from [humanize-writing](https://github.com/marian-kamenistak/humanize-writing) (MIT); the wording, the carve-outs for voice samples and short text, and the cross-references to §10, §24, and §31 are written for this skill. Still 38 patterns.
 - **2.11.0** - Added patterns #37 (colon reveals) and #38 (faux-insight setups). Both pattern names come from [no-ai-slop](https://github.com/petergyang/no-ai-slop) (MIT); the rule text and examples here are written for this skill. 38 patterns total.
 - **2.10.0** - Added structural/formatting patterns #34-36: tables where prose belongs, skipped heading levels, and thematic breaks before headings. 36 patterns total.
 - **2.9.1** - Improved distribution and portability: removed nonportable frontmatter and tool preapprovals, made global installation the documented default, added package validation, and removed the duplicated long-form example from the runtime prompt. No change to the 33 patterns.

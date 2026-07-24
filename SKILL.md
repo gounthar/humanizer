@@ -9,7 +9,7 @@ description: |
   voice, negative parallelisms, and filler phrases.
 license: MIT
 metadata:
-  version: "2.11.0"
+  version: "2.12.0"
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -44,6 +44,10 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 **Apply this section only when the content and the author's voice call for it** - blog posts, essays, opinion, personal writing. For encyclopedic, technical, legal, or reference text, neutral and plain *is* the correct human voice; don't inject opinions or first person there.
 
 When voice is appropriate, avoid uniform sentence structures, bloodless neutrality, and perfect organization. Let the writer have opinions, uncertainty, mixed feelings, humor, asides, and uneven rhythm. Never add factual claims to create that personality.
+
+## NO DETECTOR EVASION
+
+The job is writing that reads like a person wrote it, not text engineered to score low on a classifier. Never use homoglyphs (a Cyrillic а standing in for a Latin a), zero-width or other invisible characters, deliberate typos, or paraphrase-spinning. They break copy-paste, search, and screen readers, they are dishonest about the text's origin, and a draft that passes only because of them has not been fixed. The honest form of imperfection is prose a person would actually write: a fragment, a sentence that opens with *And* or *But*, an aside, a paragraph that runs short because the thought ended.
 
 ## CONTENT PATTERNS
 
@@ -411,6 +415,16 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 > Here's what nobody tells you about database migrations: you need a rollback plan.
 **After:**
 > Database migrations need a rollback plan.
+
+## NUMERIC CHECKS
+
+Nearly every rule above is a judgment call. These three are countable, so verify them against the final rewrite:
+
+- **Hedging density.** At most one hedge per 300 words (*might*, *perhaps*, *potentially*, *arguably*, *tends to*, *it seems*), and never two in the same sentence. See §24.
+- **Sentence rhythm.** At least one sentence of six words or fewer per 120 words, with lengths that jump rather than settle. When nearly every sentence lands inside the same ten-word band, the cadence reads machine-flat even after the vocabulary is clean. Do not overcorrect into §31.
+- **List length.** Prefer two or four items over three or five, with items of unequal length and grammar. Three balanced items is the rule of three wearing bullets (§10).
+
+These are calibration targets, not quotas. A voice sample (see Voice Calibration) outranks them, and short text is exempt: a 40-word comment cannot meaningfully hit a per-300-word ratio.
 
 ## DETECTION GUIDANCE
 

@@ -432,7 +432,7 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 **Before:**
 > The team performed an analysis of the logs and made a determination that a rollback was appropriate.
 **After:**
-> The team read the logs and rolled back.
+> The team read the logs and decided a rollback was appropriate.
 
 ### 41. Stacked Noun Phrases
 
@@ -441,7 +441,7 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 **Before:**
 > We rolled out a customer engagement optimization workflow review.
 **After:**
-> We reviewed how we optimise the way customers engage.
+> We rolled out a review of the workflow for optimizing customer engagement.
 
 ### 42. Unsubordinated Clause Chains
 
@@ -482,7 +482,7 @@ When in doubt, look for **clusters** of tells, not isolated ones. A single em da
 
 1. Read the input carefully and identify every instance of the patterns above.
 2. Write a **draft rewrite**. Check that it varies sentence length, prefers specific details and simple constructions (is/are/has), and keeps the appropriate register.
-3. Run the **read-aloud pass** over the draft: say it, mark where you stumble, lose breath, pause oddly, or reword on the fly, then route each mark by the table in `references/detection-guidance.md`. A mark locates a defect without naming one, and the limits there outrank it.
+3. Run the **read-aloud pass** over the draft: say it, mark where you stumble, lose breath, pause oddly, or reword on the fly, then route each mark by the table in `references/detection-guidance.md`. A mark shows where to look, not what is wrong and not that anything is, and the limits there outrank it.
 4. Ask two questions: **"What makes the below so obviously AI generated?"** and **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
 5. Revise into a **final rewrite** that addresses both the audit answers and anything step 3 marked, and contains no em or en dashes (see §14).
 

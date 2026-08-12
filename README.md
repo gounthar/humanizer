@@ -107,7 +107,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 Rewrites follow a no-fabrication rule: they never add facts, names, dates, or citations that aren't in the source text. Specificity has to come from the source or the author, not from the rewrite.
 
-One step sits between the draft and the audit: the read-aloud pass. Say the draft as if talking to somebody, and mark wherever you stumble, pause somewhere odd, run out of breath, or reword on the fly. A mark locates a defect without naming it, so each one routes back to the section that owns it, and the fix comes from that section. Smoothing the sentence is not a fix; it reintroduces signposting and tends to cost the specific detail that made the prose sound like a person.
+One step sits between the draft and the audit: the read-aloud pass. Say the draft as if talking to somebody, and mark wherever you stumble, pause somewhere odd, run out of breath, or reword on the fly. A mark shows where to look rather than what is wrong, so each one routes back to a section, and that section decides whether anything is wrong at all. Smoothing the sentence is not a fix; it reintroduces signposting and tends to cost the specific detail that made the prose sound like a person.
 
 Two rules sit alongside the pattern list. Detector evasion is banned outright: no homoglyphs, invisible characters, planted typos, or paraphrase-spinning, because they break copy-paste, search, and screen readers without making the writing any better. And three checks are countable rather than judgment calls, so the skill verifies them against the final rewrite: hedging density (at most one per 300 words), sentence rhythm (at least one sentence of six words or fewer per 120 words), and list length (two or four items, not three or five).
 
@@ -230,7 +230,7 @@ Two rules sit alongside the pattern list. Detector evasion is banned outright: n
   clause chains. Each carries a false-positive carve-out, since all four describe constructions
   that competent human writers use on purpose. 42 patterns. Also added a read-aloud pass to the
   process: say the draft, mark where you stumble or run out of breath, then look up what the
-  stumble means. It finds no new defects of its own, it routes to the sections that already own
+  stumble means. It finds no new defects of its own. It routes to the sections that already own
   them, which is why it earns its place next to four structural patterns that are hard to see
   on the page. It is detect-only by design: fixing a stumble by smoothing the sentence would
   reintroduce §28 signposting and cost the specific detail that made the prose sound human.

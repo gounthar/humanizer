@@ -47,7 +47,7 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 
 Step 3 of the process in `SKILL.md`. Read the draft as if saying it to somebody, and mark every place where you would stumble, pause somewhere odd, run out of breath, or catch yourself rewording on the fly.
 
-The marks locate a defect, they do not name one. Each points back at a pattern:
+A mark shows where to look. It does not say what is wrong, and it does not prove that anything is. Each points back at a pattern:
 
 | What happens when you say it | Where to look |
 |---|---|

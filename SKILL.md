@@ -9,7 +9,7 @@ description: |
   voice, negative parallelisms, and filler phrases.
 license: MIT
 metadata:
-  version: "2.12.0"
+  version: "2.13.0"
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -416,6 +416,42 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 **After:**
 > Database migrations need a rollback plan.
 
+### 39. Parallel Sentence Frames Within a Paragraph
+
+**Shape to watch:** consecutive sentences stamped from one syntactic mould — same opening part of speech, same clause order, often the same length.
+**Problem:** §10 catches balanced triads inside a sentence or list; this is the same instinct one level up, and harder to see because each sentence reads fine alone. The paragraph pulses in even beats and sounds composed rather than thought. Break the frame structurally: subordinate one clause into the sentence before it, or merge two. Swapping the opening word is not enough.
+**Before:**
+> The parser handles quotes correctly. The parser handles escapes correctly. The parser handles newlines with a workaround.
+**After:**
+> The parser gets quotes and escapes right. Newlines still need a workaround.
+
+### 40. Nominalization
+
+**Shape to watch:** a verb turned into a noun and propped up by a weak one — *make a decision*, *perform an analysis*, *provide an explanation*, *conduct a review*, *achieve a reduction*.
+**Problem:** The action disappears into the noun and something bland is left holding the sentence up. It adds words, delays the verb, and drains out the agent: *a decision was reached* names nobody. Put the action back in the verb. Related to §13, which is the passive hiding the actor; here the actor may be present and the *verb* went missing.
+**Before:**
+> The team performed an analysis of the logs and made a determination that a rollback was appropriate.
+**After:**
+> The team read the logs and rolled back.
+
+### 41. Stacked Noun Phrases
+
+**Shape to watch:** three or more nouns and adjectives chained as one modifier with no prepositions — *customer engagement optimization workflow*, *data quality assurance process improvement*.
+**Problem:** Each noun added forces the reader to hold the whole stack before learning what the phrase is about, and three deep is usually where comprehension drops. It reads authoritative because it is dense, but the density is grammatical rather than informational. Unstack it with prepositions. Distinct from §26, which covers hyphenated pairs.
+**Before:**
+> We rolled out a customer engagement optimization workflow review.
+**After:**
+> We reviewed how we optimise the way customers engage.
+
+### 42. Unsubordinated Clause Chains
+
+**Shape to watch:** a run of independent clauses end to end, with no *because*, *although*, *while*, or *since* to say how they relate. Every fact arrives at equal weight.
+**Problem:** Subordination is where judgement lives — which fact caused which, which matters less. A flat chain hands that work to the reader in a rhythm that reads mechanical. The diagnostic: if every sentence could be reordered without loss, subordinate the supporting facts into the load-bearing ones. Do not overcorrect into §31, which is short fragments for drama; this is about *relation*, not length.
+**Before:**
+> The cache was cold. The build took nine minutes. We added a warm-up step. The build takes two minutes now.
+**After:**
+> Because the cache was cold, the build took nine minutes; a warm-up step brought it down to two.
+
 ## NUMERIC CHECKS
 
 Nearly every rule above is a judgment call. These three are countable, so verify them against the final rewrite:
@@ -445,6 +481,10 @@ A clean human writer can hit several of the patterns above without any AI involv
 - **Unsourced claims.** Most of the web is unsourced. Lack of citations doesn't prove anything.
 - **Correct, complex formatting.** Visual editors and templates produce clean output without any AI.
 - **Secondhand text.** Do not rewrite watched phrases inside quotations, titles, proper names, or examples where the phrase is being discussed rather than used.
+- **Deliberate parallelism.** Repeating a frame on purpose is one of the oldest tools in rhetoric, and speeches, aphorisms, and closing lines earn it. §39 is about frames the writer did not choose — sentence after sentence in the same mould with no reason for the echo. If removing the repetition weakens the point, keep it.
+- **Established compound nouns.** *Continuous integration pipeline*, *garbage collection pause*, *pull request template*. §41 targets stacks assembled on the spot, not fixed terms of art the field already reads as single units.
+- **Short unsubordinated sequences.** Two flat sentences in a row are normal, and instructions, recipes, and procedures are flat by design because the steps really are equal. §42 needs a sustained run before it means anything.
+- **Nominalizations with no verb behind them.** *Information*, *quality*, *evidence*, and *policy* are not disguised verbs. §40 is about actions turned into nouns, not every abstract noun in the draft.
 
 When in doubt, look for **clusters** of tells, not isolated ones. A single em dash means nothing; em dashes plus rule-of-three plus *vibrant tapestry* plus a "Conclusion" section is a confession.
 
@@ -473,11 +513,30 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 ## Process and Output
 
 1. Read the input carefully and identify every instance of the patterns above.
-2. Write a **draft rewrite**. Check that it reads naturally aloud, varies sentence length, prefers specific details and simple constructions (is/are/has), and keeps the appropriate register.
-3. Ask two questions: **"What makes the below so obviously AI generated?"** and **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
-4. Revise into a **final rewrite** that addresses them and contains no em or en dashes (see §14).
+2. Write a **draft rewrite**. Check that it varies sentence length, prefers specific details and simple constructions (is/are/has), and keeps the appropriate register.
+3. Run the **read-aloud pass** over the draft (see below).
+4. Ask two questions: **"What makes the below so obviously AI generated?"** and **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
+5. Revise into a **final rewrite** that addresses them and contains no em or en dashes (see §14).
 
 In pasted-text mode, deliver the draft, the brief "still-AI" bullets, the final rewrite, and (optionally) a short summary of changes. In file and embedded modes, run the same loop but deliver only what the mode calls for (see Invocation Modes).
+
+### The read-aloud pass
+
+Read the draft as if saying it to somebody. Mark every place where you would stumble, pause somewhere odd, run out of breath, or catch yourself rewording on the fly.
+
+The marks locate a defect, they do not name one. Each points back at a section above:
+
+| What happens when you say it | Where to look |
+|---|---|
+| Breath runs out before the point lands | §42 clause chains, §41 stacked nouns |
+| Several sentences in the same even beat | §39 parallel frames, sentence rhythm in NUMERIC CHECKS |
+| A phrase that names no action trips you | §40 nominalization |
+| A pause that feels staged rather than needed | §31 staccato drama, §37 colon reveals |
+| Facts arrive with nothing saying how they relate | §42 |
+
+Fix by that section's rule. Do **not** fix by smoothing. Slipping in a connective to ease a transition is §28 signposting, and rounding off a sentence that is awkward but accurate usually costs the specific detail that made it sound like a person (see Signs of human writing).
+
+Two limits on this pass. Most prose is written to be read rather than said, so one stumble proves nothing on its own. And where the text admits a mistake, expect it to be awkward and leave it that way: a concession that comes out smooth is a defect, not a success.
 
 ## Reference
 

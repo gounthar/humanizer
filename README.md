@@ -47,7 +47,7 @@ The skill is then invoked as `/humanizer:humanizer`.
 
 ### Manual
 
-Any agent harness can use the skill directly because the runtime artifact is `SKILL.md`. Install it wherever your harness expects skill directories, or copy `SKILL.md` into an existing skill folder.
+Any agent harness can use the skill directly. The runtime artifact is `SKILL.md` plus `references/detection-guidance.md`, which holds the false-positive carve-outs, the signs of human writing, and the read-aloud pass. `SKILL.md` tells the agent to read it before rewriting, so copy both or the carve-outs go missing and the skill will flatten prose a person wrote on purpose.
 
 For example:
 
@@ -58,8 +58,9 @@ git clone https://github.com/blader/humanizer.git /path/to/your/skills/humanizer
 Or, if you already have this repo cloned:
 
 ```bash
-mkdir -p /path/to/your/skills/humanizer
+mkdir -p /path/to/your/skills/humanizer/references
 cp SKILL.md /path/to/your/skills/humanizer/
+cp references/detection-guidance.md /path/to/your/skills/humanizer/references/
 ```
 
 ## Usage
@@ -106,13 +107,17 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 Rewrites follow a no-fabrication rule: they never add facts, names, dates, or citations that aren't in the source text. Specificity has to come from the source or the author, not from the rewrite.
 
+One step sits between the draft and the audit: the read-aloud pass. Say the draft as if talking to somebody, and mark wherever you stumble, pause somewhere odd, run out of breath, or reword on the fly. A mark shows where to look rather than what is wrong, so each one routes back to a section, and that section decides whether anything is wrong at all. Smoothing the sentence is not a fix; it reintroduces signposting and tends to cost the specific detail that made the prose sound like a person.
+
 Two rules sit alongside the pattern list. Detector evasion is banned outright: no homoglyphs, invisible characters, planted typos, or paraphrase-spinning, because they break copy-paste, search, and screen readers without making the writing any better. And three checks are countable rather than judgment calls, so the skill verifies them against the final rewrite: hedging density (at most one per 300 words), sentence rhythm (at least one sentence of six words or fewer per 120 words), and list length (two or four items, not three or five).
 
 ### Key Insight from Wikipedia
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 38 Patterns Detected (with Before/After Examples)
+## 42 Patterns Detected (with Before/After Examples)
+
+`SKILL.md` carries the same 42 with their false-positive carve-outs.
 
 ### Content Patterns
 
@@ -160,6 +165,10 @@ Two rules sit alongside the pattern list. Detector evasion is banned outright: n
 | 36 | **Thematic breaks before headings** | `---` sitting just above a heading | Let the heading start the section |
 | 37 | **Colon reveals** | "The best part: it retries on its own." | Rewrite as a plain sentence |
 | 38 | **Faux-insight setups** | "Here's what nobody tells you: ..." | Let the claim stand by itself |
+| 39 | **Parallel sentence frames** | "The parser handles quotes correctly. The parser handles escapes correctly." | Merge them, or subordinate one into the other |
+| 40 | **Nominalization** | "performed an analysis and made a determination" | "read the logs and rolled back" |
+| 41 | **Stacked noun phrases** | "customer engagement optimization workflow" | Unstack it with prepositions |
+| 42 | **Unsubordinated clause chains** | "The cache was cold. The build took nine minutes." | "Because the cache was cold, the build took nine minutes" |
 
 ### Communication Patterns
 
@@ -216,6 +225,20 @@ Two rules sit alongside the pattern list. Detector evasion is banned outright: n
 
 ## Version History
 
+- **2.13.0** - Added four patterns (§39-42) covering structure rather than vocabulary: parallel
+  sentence frames within a paragraph, nominalization, stacked noun phrases, and unsubordinated
+  clause chains. Each carries a false-positive carve-out, since all four describe constructions
+  that competent human writers use on purpose. 42 patterns. Also added a read-aloud pass to the
+  process: say the draft, mark where you stumble or run out of breath, then look up what the
+  stumble means. It finds no new defects of its own. It routes to the sections that already own
+  them, which is why it earns its place next to four structural patterns that are hard to see
+  on the page. It is detect-only by design: fixing a stumble by smoothing the sentence would
+  reintroduce §28 signposting and cost the specific detail that made the prose sound human.
+  Four patterns and a new process step did not fit the 500-line portability budget, so the
+  detection guidance moved to `references/detection-guidance.md`: the false-positive list, the
+  signs of human writing, and the read-aloud pass table. `SKILL.md` now tells the agent to read
+  that file before rewriting, and the package validator fails if a `references/` path named in
+  `SKILL.md` is not shipped alongside it.
 - **2.12.0** - Added a no-detector-evasion rule (no homoglyphs, invisible characters, planted typos, or paraphrase-spinning) and a Numeric Checks section with three countable thresholds: hedging density, sentence rhythm, and list length. Both come from [humanize-writing](https://github.com/marian-kamenistak/humanize-writing) (MIT); the wording, the carve-outs for voice samples and short text, and the cross-references to §10, §24, and §31 are written for this skill. Still 38 patterns.
 - **2.11.0** - Added patterns #37 (colon reveals) and #38 (faux-insight setups). Both pattern names come from [no-ai-slop](https://github.com/petergyang/no-ai-slop) (MIT); the rule text and examples here are written for this skill. 38 patterns total.
 - **2.10.0** - Added structural/formatting patterns #34-36: tables where prose belongs, skipped heading levels, and thematic breaks before headings. 36 patterns total.

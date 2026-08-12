@@ -7,7 +7,6 @@ import json
 import re
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parent.parent
 SKILL = (ROOT / "SKILL.md").read_text()
 README = (ROOT / "README.md").read_text()
@@ -42,20 +41,21 @@ versions = {skill_version, readme_version, str(PLUGIN.get("version", ""))}
 if len(versions) != 1:
     raise SystemExit(f"Version mismatch: {sorted(versions)}")
 
-pattern_numbers = [
-    int(number)
-    for number in re.findall(r"(?m)^### ([0-9]+)\. ", SKILL)
-]
-if pattern_numbers != list(range(1, 39)):
-    raise SystemExit(f"Expected patterns 1-38, found {pattern_numbers}")
+pattern_numbers = [int(number) for number in re.findall(r"(?m)^### ([0-9]+)\. ", SKILL)]
+if pattern_numbers != list(range(1, 43)):
+    raise SystemExit(f"Expected patterns 1-42, found {pattern_numbers}")
 
-readme_numbers = {
-    int(number) for number in re.findall(r"(?m)^\| ([0-9]+) \|", README)
-}
-if readme_numbers != set(range(1, 39)):
-    raise SystemExit("README pattern table must contain patterns 1-38")
+readme_numbers = {int(number) for number in re.findall(r"(?m)^\| ([0-9]+) \|", README)}
+if readme_numbers != set(range(1, 43)):
+    raise SystemExit("README pattern table must contain patterns 1-42")
 
 if len(SKILL.splitlines()) > 500:
     raise SystemExit("SKILL.md exceeds the 500-line portability budget")
+
+# SKILL.md defers the carve-outs to a reference file, so a package that ships
+# without it produces a skill that flattens prose a person wrote on purpose.
+for reference in sorted(set(re.findall(r"`(references/[\w./-]+)`", SKILL))):
+    if not (ROOT / reference).is_file():
+        raise SystemExit(f"SKILL.md points at {reference}, which is not in the package")
 
 print(f"Humanizer package v{skill_version} is valid")

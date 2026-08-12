@@ -516,7 +516,7 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 2. Write a **draft rewrite**. Check that it varies sentence length, prefers specific details and simple constructions (is/are/has), and keeps the appropriate register.
 3. Run the **read-aloud pass** over the draft (see below).
 4. Ask two questions: **"What makes the below so obviously AI generated?"** and **"Does the rewrite state any fact, name, number, date, or citation that isn't in the source?"** Answer briefly. A fabrication is a defect even when it sounds more human than the vague original.
-5. Revise into a **final rewrite** that addresses them and contains no em or en dashes (see §14).
+5. Revise into a **final rewrite** that addresses both the audit answers and anything step 3 marked, and contains no em or en dashes (see §14).
 
 In pasted-text mode, deliver the draft, the brief "still-AI" bullets, the final rewrite, and (optionally) a short summary of changes. In file and embedded modes, run the same loop but deliver only what the mode calls for (see Invocation Modes).
 
@@ -534,9 +534,9 @@ The marks locate a defect, they do not name one. Each points back at a section a
 | A pause that feels staged rather than needed | §31 staccato drama, §37 colon reveals |
 | Facts arrive with nothing saying how they relate | §42 |
 
-Fix by that section's rule. Do **not** fix by smoothing. Slipping in a connective to ease a transition is §28 signposting, and rounding off a sentence that is awkward but accurate usually costs the specific detail that made it sound like a person (see Signs of human writing).
+Fix by that section's rule. Do **not** fix by smoothing, and note that the two can look identical. What separates them is whether the connective carries a relation. §42 wants a subordinator that states how two facts actually stand to each other (*because*, *although*, *since*), and supplying one is the fix. A connective dropped in to ease a transition while carrying no relation (*Additionally*, *Moreover*, *That said*) is §28 signposting, and supplying one is a new defect. Rounding off a sentence that is awkward but accurate is the other way to fail here, because it usually costs the specific detail that made the prose sound like a person (see Signs of human writing).
 
-Two limits on this pass. Most prose is written to be read rather than said, so one stumble proves nothing on its own. And where the text admits a mistake, expect it to be awkward and leave it that way: a concession that comes out smooth is a defect, not a success.
+Two limits on this pass, and they outrank the table. Most prose is written to be read rather than said, so a stumble is a reason to look, never a verdict on its own: where the sentence is clear on the page and the section it routes to does not actually apply, leave it alone. And where the text concedes an error to somebody who has just caught it, expect the concession to come out awkward and leave it that way. That limit is narrow on purpose. A calm, clear concession is fine in most writing, and this is only about the apology polished into a shape that reads as performed.
 
 ## Reference
 

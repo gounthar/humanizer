@@ -226,21 +226,12 @@ Two rules sit alongside the pattern list. Detector evasion is banned outright: n
 
 ## Version History
 
-- **2.14.0** - Split §24 so that removing a hedge is treated as a factual change. Stacked
-  qualifiers are still the defect; the last qualifier on a claim the source does not settle is
-  not, and the rewrite may not turn *possible* into *likely* to save a word. The hedging figure
-  in Numeric Checks now counts only those stacks, because a threshold that counts honest
-  uncertainty as filler pushes toward inventing confidence, which is the fabrication the
-  no-fabrication rule went in for in 2.9.0 arriving from the other direction. The matching
-  carve-out is in `references/detection-guidance.md`. Also added `references/decision-ledger.md`:
-  a format for banking the lines an author accepted or rejected, with the reason classified so a
-  ruling about accuracy travels further than one about taste. Both come from
-  [respeak](https://github.com/quietmill/respeak) (MIT), read at commit `ac10b2c` on 2026-08-18;
-  the wording, the reach table, and the cross-references to §14, §24, Voice Calibration and Your
-  Task are written for this skill. Deliberately left there: respeak's proposition ledger and
-  four-pass method, which restate work this skill already does in Your Task and Process and
-  Output, and its per-surface registers for UI copy, narration, and localisation, which are a
-  different job from removing AI tells. Still 42 patterns.
+- **2.15.1** - Moved the Numeric Checks section to `references/numeric-checks.md`. The
+  2.15.0 addition to §12 took `SKILL.md` to 507 lines, over the 500-line portability
+  budget, so the package validator was failing. This is the same remedy 2.13.0 used:
+  what does not fit moves to `references/`, the budget does not move. Also fixed the
+  2.15.0 entry's position, which sat below 2.14.0 and made the validator read the
+  package version as 2.14.0.
 - **2.15.0** - Extended §12 to cover the numeric form of a false range: a span such as *5 to 10
   minutes* or *a 20-30% improvement*, where the width is the absence of a measurement rather
   than an error bar. §12 previously covered only rhetorical *from X to Y* sweeps across
@@ -256,6 +247,21 @@ Two rules sit alongside the pattern list. Detector evasion is banned outright: n
   for aircraft maintenance manuals and conflicts with PERSONALITY AND SOUL and Voice Calibration
   outside reference documentation; and its premise that AI no longer uses em dashes, which is an
   assertion this project measured and rejected. Still 42 patterns.
+- **2.14.0** - Split §24 so that removing a hedge is treated as a factual change. Stacked
+  qualifiers are still the defect; the last qualifier on a claim the source does not settle is
+  not, and the rewrite may not turn *possible* into *likely* to save a word. The hedging figure
+  in Numeric Checks now counts only those stacks, because a threshold that counts honest
+  uncertainty as filler pushes toward inventing confidence, which is the fabrication the
+  no-fabrication rule went in for in 2.9.0 arriving from the other direction. The matching
+  carve-out is in `references/detection-guidance.md`. Also added `references/decision-ledger.md`:
+  a format for banking the lines an author accepted or rejected, with the reason classified so a
+  ruling about accuracy travels further than one about taste. Both come from
+  [respeak](https://github.com/quietmill/respeak) (MIT), read at commit `ac10b2c` on 2026-08-18;
+  the wording, the reach table, and the cross-references to §14, §24, Voice Calibration and Your
+  Task are written for this skill. Deliberately left there: respeak's proposition ledger and
+  four-pass method, which restate work this skill already does in Your Task and Process and
+  Output, and its per-surface registers for UI copy, narration, and localisation, which are a
+  different job from removing AI tells. Still 42 patterns.
 - **2.13.0** - Added four patterns (§39-42) covering structure rather than vocabulary: parallel
   sentence frames within a paragraph, nominalization, stacked noun phrases, and unsubordinated
   clause chains. Each carries a false-positive carve-out, since all four describe constructions

@@ -241,6 +241,21 @@ Two rules sit alongside the pattern list. Detector evasion is banned outright: n
   four-pass method, which restate work this skill already does in Your Task and Process and
   Output, and its per-surface registers for UI copy, narration, and localisation, which are a
   different job from removing AI tells. Still 42 patterns.
+- **2.15.0** - Extended §12 to cover the numeric form of a false range: a span such as *5 to 10
+  minutes* or *a 20-30% improvement*, where the width is the absence of a measurement rather
+  than an error bar. §12 previously covered only rhetorical *from X to Y* sweeps across
+  non-scales, which is a different construction. The repair is deliberately framed as an
+  evidence question and cross-referenced to §24 and step 3 of Your Task, because narrowing the
+  span without measuring invents a fact, and that is the failure mode a wording fix walks into.
+  Carries two carve-outs: an interval that reports its basis survives, and so does a range that
+  is genuinely the answer. Prompted by a pattern list circulated by
+  [@rubenhassid](https://x.com/rubenhassid/status/2087856703773508025) on 2026-08-13, read on
+  2026-08-18. Eight of its nine items were already covered here, two of them verbatim
+  (*the part everyone misses* in §38, *X is the Y of Z* in §32), and the numeric range was the
+  only gap. Deliberately left out: its ASD-STE100 recommendation, which is a controlled language
+  for aircraft maintenance manuals and conflicts with PERSONALITY AND SOUL and Voice Calibration
+  outside reference documentation; and its premise that AI no longer uses em dashes, which is an
+  assertion this project measured and rejected. Still 42 patterns.
 - **2.13.0** - Added four patterns (§39-42) covering structure rather than vocabulary: parallel
   sentence frames within a paragraph, nominalization, stacked noun phrases, and unsubordinated
   clause chains. Each carries a false-positive carve-out, since all four describe constructions

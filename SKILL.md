@@ -9,7 +9,7 @@ description: |
   voice, negative parallelisms, and filler phrases.
 license: MIT
 metadata:
-  version: "2.14.0"
+  version: "2.15.0"
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -164,6 +164,14 @@ The job is writing that reads like a person wrote it, not text engineered to sco
 > Our journey through the universe has taken us from the singularity of the Big Bang to the grand cosmic web, from the birth and death of stars to the enigmatic dance of dark matter.
 **After:**
 > The book covers the Big Bang, star formation, and current theories about dark matter.
+
+**The numeric form: a span where one measurement belongs.** *5 to 10 minutes*, *a 20-30% improvement*, *roughly 2 to 3 hours*. The width is not an error bar, it is the absence of a measurement: nobody who timed the thing reports a spread that wide. Give the number you have and say where it came from, or drop the quantity and describe the work instead.
+**Before:**
+> The migration takes 5 to 10 minutes and cuts query time by 30-50%.
+**After:**
+> The migration took 7 minutes on our staging database. I did not measure query time.
+
+The repair is an evidence question rather than a wording one, which is why this half belongs next to §24: the span is a hedge stacked on a number, and narrowing it without measuring invents a fact, exactly as step 3 of Your Task forbids. **A real interval survives the rewrite when it carries its basis** (*between 4 and 6 minutes across nine runs*), and so does a range that is genuinely the answer, such as a supported version window or a published price band. Cut the span that stands in for a measurement, not the one that reports it.
 
 ### 13. Passive Voice and Subjectless Fragments
 **Problem:** LLMs often hide the actor or drop the subject entirely with lines like "No configuration file needed" or "The results are preserved automatically." Rewrite these when active voice makes the sentence clearer and more direct.

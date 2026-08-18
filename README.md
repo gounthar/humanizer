@@ -47,7 +47,7 @@ The skill is then invoked as `/humanizer:humanizer`.
 
 ### Manual
 
-Any agent harness can use the skill directly. The runtime artifact is `SKILL.md` plus `references/detection-guidance.md`, which holds the false-positive carve-outs, the signs of human writing, and the read-aloud pass. `SKILL.md` tells the agent to read it before rewriting, so copy both or the carve-outs go missing and the skill will flatten prose a person wrote on purpose.
+Any agent harness can use the skill directly. The runtime artifact is `SKILL.md` plus the two files in `references/`. `detection-guidance.md` holds the false-positive carve-outs, the signs of human writing, and the read-aloud pass; `SKILL.md` tells the agent to read it before rewriting, so copy it or the carve-outs go missing and the skill will flatten prose a person wrote on purpose. `decision-ledger.md` is how a project banks the lines its author has accepted or rejected, and is only consulted where such a ledger exists.
 
 For example:
 
@@ -60,7 +60,7 @@ Or, if you already have this repo cloned:
 ```bash
 mkdir -p /path/to/your/skills/humanizer/references
 cp SKILL.md /path/to/your/skills/humanizer/
-cp references/detection-guidance.md /path/to/your/skills/humanizer/references/
+cp references/*.md /path/to/your/skills/humanizer/references/
 ```
 
 ## Usage
@@ -109,7 +109,7 @@ Rewrites follow a no-fabrication rule: they never add facts, names, dates, or ci
 
 One step sits between the draft and the audit: the read-aloud pass. Say the draft as if talking to somebody, and mark wherever you stumble, pause somewhere odd, run out of breath, or reword on the fly. A mark shows where to look rather than what is wrong, so each one routes back to a section, and that section decides whether anything is wrong at all. Smoothing the sentence is not a fix; it reintroduces signposting and tends to cost the specific detail that made the prose sound like a person.
 
-Two rules sit alongside the pattern list. Detector evasion is banned outright: no homoglyphs, invisible characters, planted typos, or paraphrase-spinning, because they break copy-paste, search, and screen readers without making the writing any better. And three checks are countable rather than judgment calls, so the skill verifies them against the final rewrite: hedging density (at most one per 300 words), sentence rhythm (at least one sentence of six words or fewer per 120 words), and list length (two or four items, not three or five).
+Two rules sit alongside the pattern list. Detector evasion is banned outright: no homoglyphs, invisible characters, planted typos, or paraphrase-spinning, because they break copy-paste, search, and screen readers without making the writing any better. And three checks are countable rather than judgment calls, so the skill verifies them against the final rewrite: hedging density (at most one per 300 words, counting only qualifiers stacked on a single claim), sentence rhythm (at least one sentence of six words or fewer per 120 words), and list length (two or four items, not three or five).
 
 ### Key Insight from Wikipedia
 
@@ -222,9 +222,25 @@ Two rules sit alongside the pattern list. Detector evasion is banned outright: n
 - [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) - Maintaining organization
 - [no-ai-slop](https://github.com/petergyang/no-ai-slop) (MIT) - Source of the pattern names for #37 and #38
 - [humanize-writing](https://github.com/marian-kamenistak/humanize-writing) (MIT) - Source of the numeric thresholds and the no-evasion stance in 2.12.0
+- [respeak](https://github.com/quietmill/respeak) (MIT) - Source of the confidence-calibration rule in §24 and the decision ledger in 2.14.0
 
 ## Version History
 
+- **2.14.0** - Split §24 so that removing a hedge is treated as a factual change. Stacked
+  qualifiers are still the defect; the last qualifier on a claim the source does not settle is
+  not, and the rewrite may not turn *possible* into *likely* to save a word. The hedging figure
+  in Numeric Checks now counts only those stacks, because a threshold that counts honest
+  uncertainty as filler pushes toward inventing confidence, which is the fabrication the
+  no-fabrication rule went in for in 2.9.0 arriving from the other direction. The matching
+  carve-out is in `references/detection-guidance.md`. Also added `references/decision-ledger.md`:
+  a format for banking the lines an author accepted or rejected, with the reason classified so a
+  ruling about accuracy travels further than one about taste. Both come from
+  [respeak](https://github.com/quietmill/respeak) (MIT), read at commit `ac10b2c` on 2026-08-18;
+  the wording, the reach table, and the cross-references to §14, §24, Voice Calibration and Your
+  Task are written for this skill. Deliberately left there: respeak's proposition ledger and
+  four-pass method, which restate work this skill already does in Your Task and Process and
+  Output, and its per-surface registers for UI copy, narration, and localisation, which are a
+  different job from removing AI tells. Still 42 patterns.
 - **2.13.0** - Added four patterns (§39-42) covering structure rather than vocabulary: parallel
   sentence frames within a paragraph, nominalization, stacked noun phrases, and unsubordinated
   clause chains. Each carries a false-positive carve-out, since all four describe constructions

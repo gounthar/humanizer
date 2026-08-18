@@ -9,7 +9,7 @@ description: |
   voice, negative parallelisms, and filler phrases.
 license: MIT
 metadata:
-  version: "2.13.0"
+  version: "2.14.0"
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -36,6 +36,8 @@ If the user provides a writing sample (their own previous writing), analyze it b
 3. Without a sample, use the default behavior below.
 
 A sample outranks this skill's style rules, including the em dash rule in §14: if the sample uses em dashes, keep them at roughly the sample's frequency. Matching the author beats scrubbing the tell.
+
+When the user accepts or rejects a specific line, they have just written a sample. Record the pair and the reason as `references/decision-ledger.md` sets out, and give banked rulings the standing of a sample: they outrank the style rules here.
 
 ## PERSONALITY AND SOUL
 
@@ -269,11 +271,13 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 - "It is important to note that the data shows" → "The data shows"
 
 ### 24. Excessive Hedging
-**Problem:** Over-qualifying statements.
+**Problem:** Qualifiers stacked on a single claim. The defect is the stack, not the hedge: one qualifier marking real uncertainty is doing a job, and the fix leaves it standing.
 **Before:**
 > It could potentially possibly be argued that the policy might have some effect on outcomes.
 **After:**
 > The policy may affect outcomes.
+
+**Never raise confidence to shorten a sentence.** *Possible* does not become *likely*, *likely* does not become *certain*, and *one user reported* does not become *this happens*. Hedges on interpretations, inferences, and evidence the source itself calls unverified survive the rewrite; hedges on settled facts come out. Cutting the last qualifier off an uncertain claim invents a fact exactly as step 3 of Your Task forbids, and it is harder to catch later because nothing new appeared on the page.
 
 ### 25. Generic Positive Conclusions
 **Problem:** Vague upbeat endings.
@@ -456,7 +460,7 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 
 Nearly every rule above is a judgment call. These three are countable, so verify them against the final rewrite:
 
-- **Hedging density.** At most one hedge per 300 words (*might*, *perhaps*, *potentially*, *arguably*, *tends to*, *it seems*), and never two in the same sentence. See §24.
+- **Hedging density.** At most one hedge per 300 words (*might*, *perhaps*, *potentially*, *arguably*, *tends to*, *it seems*), and never two in the same sentence. Count only the stacked qualifiers §24 is about. A hedge carrying genuine uncertainty is content, and prose that is largely inference can exceed this budget honestly; cutting to reach the number is a fabrication rather than a fix. See §24.
 - **Sentence rhythm.** At least one sentence of six words or fewer per 120 words, with lengths that jump rather than settle. When nearly every sentence lands inside the same ten-word band, the cadence reads machine-flat even after the vocabulary is clean. Do not overcorrect into §31.
 - **List length.** Prefer two or four items over three or five, with items of unequal length and grammar. Three balanced items is the rule of three wearing bullets (§10).
 

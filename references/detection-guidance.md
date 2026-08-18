@@ -28,6 +28,7 @@ A clean human writer can hit several of the patterns without any AI involvement.
 - **Established compound nouns.** *Continuous integration pipeline*, *garbage collection pause*, *pull request template*. §41 targets stacks assembled on the spot, not fixed terms of art the field already reads as single units.
 - **Short unsubordinated sequences.** Two flat sentences in a row are normal, and instructions, recipes, and procedures are flat by design because the steps really are equal. §42 needs a sustained run before it means anything.
 - **Nominalizations with no verb behind them.** *Information*, *quality*, *evidence*, and *policy* are not disguised verbs. §40 is about actions turned into nouns, not every abstract noun in the draft.
+- **A single hedge on an uncertain claim.** *Probably*, *as far as I can tell*, *one user reported*, *this is my reading of it*. On a claim the writer genuinely cannot settle, the qualifier is precision and carries information the bare sentence would lose. §24 fires on qualifiers stacked on one claim and its fix leaves one standing; the hedging figure in NUMERIC CHECKS counts those stacks, not honest uncertainty. Prose that is mostly interpretation, and text that concedes the writer does not know, will sit above the ratio and should.
 
 When in doubt, look for **clusters** of tells, not isolated ones. A single em dash means nothing; em dashes plus rule-of-three plus *vibrant tapestry* plus a "Conclusion" section is a confession.
 
